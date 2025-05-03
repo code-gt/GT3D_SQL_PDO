@@ -22,34 +22,50 @@ PDO a été créé par des développeurs géniaux pour rendre la vie des program
 
 Maintenant, voyons comment utiliser PDO pour interagir avec une base de données. Pour cela, nous allons utiliser un exemple simple : une liste de super-héros !
 
+Première étape, la connection à la base de données SQL
+
 ```php
-<?php
 // Étape 1 : Se connecter à la base de données
 try {
     $pdo = new PDO("mysql:host=localhost;dbname=superheros", "nom_utilisateur", "mot_de_passe");
 } catch (PDOException $e) {
     die("Erreur de connexion : " . $e->getMessage());
 }
+```
 
+Ensuite, nous allons préparer puis exécuter notre première requête.
+
+```php
 // Étape 2 : Préparer une requête
 $requete = $pdo->prepare("SELECT * FROM superheros");
 
 // Étape 3 : Exécuter la requête
 $requete->execute();
+```
 
+Nous récupérons ensuite les résultats de la requête dans une variable 
+
+```php
 // Étape 4 : Récupérer les résultats
 $resultats = $requete->fetchAll();
+```
 
+Puis nous les parcourons afin de les afficher de manière simple ici avec des `echo`
+
+```php
 // Étape 5 : Parcourir les résultats
 foreach ($resultats as $superhero) {
     echo "Nom : " . $superhero['nom'] . "<br>";
     echo "Super Pouvoir : " . $superhero['super_pouvoir'] . "<br>";
     echo "<hr>";
 }
+```
 
+Enfin nous n'oublons pas de fermer la connexion à SQL pour des raisons de sécurité.
+
+```php
 // Étape 6 : Fermer la connexion
 $pdo = null;
-?>
 ```
 
 Bravo ! Vous avez maintenant le pouvoir de récupérer des super-héros depuis une base de données et de les afficher sur votre site web.
