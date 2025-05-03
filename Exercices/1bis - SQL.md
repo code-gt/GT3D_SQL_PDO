@@ -17,7 +17,7 @@
 
 **Exercice 4 : Suppression de données**
 - Supprimez le jeu vidéo avec le nom *Call of Duty* de la table `games`.
-- Supprimez tous les jeux vidéo ayant un score inférieur à 60 points.
+- Supprimez tous les jeux vidéo ayant un score inférieur à 70 points.
 
 **Exercice 5 : Combinaison de requêtes**
 - Affichez tous les jeux vidéo du genre `adventure` avec un score supérieur à 80 points.
