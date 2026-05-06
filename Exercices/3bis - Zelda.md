@@ -44,26 +44,7 @@ Structure HTML fournie :
     <html>
     <head>
         <title>Jeux Zelda - Gestion</title>
-        <style>
-            * { margin: 0; padding: 0; box-sizing: border-box; }
-            body { font-family: Arial, sans-serif; background-color: #f5f5f5; padding: 20px; }
-            .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; }
-            h1 { color: #333; margin-bottom: 20px; }
-            .btn-group { margin-bottom: 20px; }
-            a.btn, button.btn { display: inline-block; padding: 10px 15px; margin-right: 10px; 
-                                background-color: #2c5f2d; color: white; text-decoration: none; 
-                                border: none; border-radius: 5px; cursor: pointer; }
-            a.btn:hover, button.btn:hover { background-color: #1e4620; }
-            table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-            th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-            th { background-color: #2c5f2d; color: white; }
-            tr:hover { background-color: #f9f9f9; }
-            .btn-edit { background-color: #4CAF50; }
-            .btn-edit:hover { background-color: #45a049; }
-            .btn-delete { background-color: #f44336; }
-            .btn-delete:hover { background-color: #da190b; }
-            .btn-sm { padding: 5px 10px; font-size: 14px; }
-        </style>
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
@@ -86,7 +67,10 @@ Structure HTML fournie :
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
                     <!-- TODO: Affiche les jeux ici avec une boucle foreach -->
+                    <!-- Ajouter autant de <td> que nécessaire -->
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -116,20 +100,7 @@ Structure HTML fournie :
     <html>
     <head>
         <title>Ajouter un jeu</title>
-        <style>
-            * { margin: 0; padding: 0; box-sizing: border-box; }
-            body { font-family: Arial, sans-serif; background-color: #f5f5f5; padding: 20px; }
-            .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; }
-            h1 { color: #333; margin-bottom: 20px; }
-            form { display: flex; flex-direction: column; }
-            label { font-weight: bold; margin-top: 15px; color: #333; }
-            input, textarea { padding: 10px; margin: 5px 0 15px 0; border: 1px solid #ddd; border-radius: 4px; }
-            button { padding: 10px; background-color: #2c5f2d; color: white; border: none; 
-                    border-radius: 5px; cursor: pointer; font-size: 16px; }
-            button:hover { background-color: #1e4620; }
-            a { margin-top: 15px; color: #2c5f2d; text-decoration: none; }
-            a:hover { text-decoration: underline; }
-        </style>
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
@@ -200,26 +171,20 @@ Structure HTML fournie :
     <html>
     <head>
         <title>Modifier un jeu</title>
-        <style>
-            * { margin: 0; padding: 0; box-sizing: border-box; }
-            body { font-family: Arial, sans-serif; background-color: #f5f5f5; padding: 20px; }
-            .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; }
-            h1 { color: #333; margin-bottom: 20px; }
-            form { display: flex; flex-direction: column; }
-            label { font-weight: bold; margin-top: 15px; color: #333; }
-            input, textarea { padding: 10px; margin: 5px 0 15px 0; border: 1px solid #ddd; border-radius: 4px; }
-            button { padding: 10px; background-color: #2c5f2d; color: white; border: none; 
-                    border-radius: 5px; cursor: pointer; font-size: 16px; }
-            button:hover { background-color: #1e4620; }
-            a { margin-top: 15px; color: #2c5f2d; text-decoration: none; }
-            a:hover { text-decoration: underline; }
-            .error { color: red; padding: 10px; background-color: #ffe6e6; border-radius: 4px; }
-        </style>
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
             <h1>Modifier le jeu</h1>
             <!-- TODO: Le formulaire sera affiché ici si le jeu existe -->
+            <form method="POST">
+                <!-- Exemple pour champ Titre -->
+                <label>Titre :</label>
+                <input type="text" name="titre" value="<?= htmlspecialchars($jeu['titre']) ?>" required>
+            
+            <button type="submit">Enregistrer les modifications</button>
+        </form>
+        <a href="index.php">← Retour à la liste</a>
         </div>
     </body>
     </html>
@@ -241,17 +206,15 @@ Ton travail PHP (avant le HTML) :
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         // Phase 1 : Affichage du formulaire
         // TODO: Requête SELECT pour récupérer le jeu avec cet ID (prepared statement)
-        $stmt = $pdo->prepare('');
-        $stmt->execute([]);
+        $stmt = $pdo->prepare(''); // Compléter
+        $stmt->execute([]); // Compléter
+        // TODO: Récupérer le jeu avec fetch()
         $jeu = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // TODO: Vérifier que le jeu existe, sinon redirection
         // if (!$jeu) { 
         
         }
-        
-        // TODO: Récupérer le jeu avec fetch()
-        // TODO: Afficher le formulaire pré-rempli avec les données actuelles
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
