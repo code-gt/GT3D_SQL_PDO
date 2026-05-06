@@ -77,20 +77,12 @@ Structure HTML fournie :
     <html>
     <head>
         <title>Games Database</title>
-        <style>
-            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
-            th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-            th { background-color: #333; color: white; }
-            tr:hover { background-color: #f5f5f5; }
-            .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-            a.btn { display: inline-block; padding: 10px 15px; background-color: #333; 
-                    color: white; text-decoration: none; border-radius: 5px; margin-bottom: 15px; }
-            a.btn:hover { background-color: #555; }
-        </style>
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
             <h1>Liste des jeux</h1>
+            <a href="add.php" class="btn">+ Ajouter un jeu</a>
             <table>
                 <thead>
                     <tr>
@@ -138,16 +130,7 @@ Structure HTML fournie :
     <html>
     <head>
         <title>Ajouter un jeu</title>
-        <style>
-            .container { max-width: 500px; margin: 50px auto; padding: 20px; background: white; border-radius: 8px; }
-            form { display: flex; flex-direction: column; }
-            label { font-weight: bold; margin-top: 15px; }
-            input, select { padding: 10px; margin: 5px 0 15px 0; border: 1px solid #ddd; border-radius: 4px; }
-            button { padding: 10px; background-color: #333; color: white; cursor: pointer; border: none; border-radius: 4px; }
-            button:hover { background-color: #555; }
-            a { margin-top: 10px; color: #333; text-decoration: none; }
-            a:hover { text-decoration: underline; }
-        </style>
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
