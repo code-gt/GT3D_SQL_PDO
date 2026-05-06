@@ -169,11 +169,6 @@ Ton travail PHP (avant le HTML) :
         // TODO: Récupérer les données du formulaire avec $_POST
         // Exemple : 
         // $titre = $_POST['titre'];
-        // $date_sortie = $_POST['date_sortie'];
-        // $console = $_POST['console'];
-        // $producteur = $_POST['producteur'];
-        // $ventes_mondiales = (float)$_POST['ventes_mondiales'];
-        // $note_presse = (float)$_POST['note_presse'];
         
         // TODO: Préparer une requête INSERT avec tous les champs
         // La requête sera : 
@@ -181,11 +176,9 @@ Ton travail PHP (avant le HTML) :
         // VALUES (?, ?, ?, ?, ?, ?)
         
         // TODO: Exécuter la requête avec un tableau contenant les 6 valeurs dans le bon ordre
-        // $stmt->execute([$titre, $date_sortie, $console, $producteur, $ventes_mondiales, $note_presse]);
+        // $stmt->execute([]);
         
         // TODO: Rediriger vers index.php après succès
-        // header('Location: index.php');
-        // exit;
     }
     ?>
 
@@ -248,12 +241,14 @@ Ton travail PHP (avant le HTML) :
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         // Phase 1 : Affichage du formulaire
         // TODO: Requête SELECT pour récupérer le jeu avec cet ID (prepared statement)
-        // $stmt = $pdo->prepare('SELECT * FROM jeux WHERE id = ?');
-        // $stmt->execute([$id]);
-        
+        $stmt = $pdo->prepare('');
+        $stmt->execute([]);
+        $jeu = $stmt->fetch(PDO::FETCH_ASSOC);
+
         // TODO: Vérifier que le jeu existe, sinon redirection
-        // $jeu = $stmt->fetch(PDO::FETCH_ASSOC);
-        // if (!$jeu) { header('Location: index.php'); exit; }
+        // if (!$jeu) { 
+        
+        }
         
         // TODO: Récupérer le jeu avec fetch()
         // TODO: Afficher le formulaire pré-rempli avec les données actuelles
@@ -274,11 +269,9 @@ Ton travail PHP (avant le HTML) :
         
         // TODO: Exécuter la requête
         // IMPORTANT : l'ID doit être le dernier paramètre du tableau execute()
-        // $stmt->execute([$titre, $date_sortie, $console, $producteur, $ventes_mondiales, $note_presse, $id]);
-        
+                
         // TODO: Rediriger vers index.php après succès
-        // header('Location: index.php');
-        // exit;
+
     }
     ?>
 
@@ -307,14 +300,10 @@ C'est l'étape la plus simple. Tu dois juste supprimer le jeu et rediriger.
         $id = (int)$_GET['id'];
         
         // TODO: Préparer requête DELETE FROM jeux WHERE id = ?
-        $stmt = $pdo->prepare('DELETE FROM jeux WHERE id = ?');
         
         // TODO: Exécuter avec le tableau [$id]
-        $stmt->execute([$id]);
         
         // TODO: Rediriger vers index.php
-        header('Location: index.php');
-        exit;
     }
     ?>
 
