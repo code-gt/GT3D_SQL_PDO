@@ -83,6 +83,9 @@ Structure HTML fournie :
             th { background-color: #333; color: white; }
             tr:hover { background-color: #f5f5f5; }
             .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+            a.btn { display: inline-block; padding: 10px 15px; background-color: #333; 
+                    color: white; text-decoration: none; border-radius: 5px; margin-bottom: 15px; }
+            a.btn:hover { background-color: #555; }
         </style>
     </head>
     <body>
@@ -99,6 +102,13 @@ Structure HTML fournie :
                 </thead>
                 <tbody>
                     <!-- TODO: Affiche les jeux ici avec une boucle foreach -->
+                    <tr>
+                        <td><!-- ID --></td>
+                        <td><!-- Nom --></td>
+                        <td><!-- Genre --></td>
+                        <td><!-- Score --></td>
+                    </tr>
+                    <!-- Ferme ta boucle foreach -->
                 </tbody>
             </table>
         </div>
@@ -129,12 +139,14 @@ Structure HTML fournie :
     <head>
         <title>Ajouter un jeu</title>
         <style>
-            .container { max-width: 500px; margin: 50px auto; padding: 20px; }
+            .container { max-width: 500px; margin: 50px auto; padding: 20px; background: white; border-radius: 8px; }
             form { display: flex; flex-direction: column; }
-            input, select { padding: 10px; margin: 10px 0; border: 1px solid #ddd; }
-            button { padding: 10px; background-color: #333; color: white; cursor: pointer; }
+            label { font-weight: bold; margin-top: 15px; }
+            input, select { padding: 10px; margin: 5px 0 15px 0; border: 1px solid #ddd; border-radius: 4px; }
+            button { padding: 10px; background-color: #333; color: white; cursor: pointer; border: none; border-radius: 4px; }
             button:hover { background-color: #555; }
-            a { margin-top: 10px; }
+            a { margin-top: 10px; color: #333; text-decoration: none; }
+            a:hover { text-decoration: underline; }
         </style>
     </head>
     <body>
@@ -164,16 +176,12 @@ Ton travail PHP (à mettre au début du fichier, avant le HTML) :
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // TODO: Récupérer les données du formulaire
-        // Les variables du formulaire sont dans $_POST['name'], $_POST['genre'], $_POST['score']
-        // $name = $_POST['name'];
-        // $genre = $_POST['genre'];
-        // $score = (int)$_POST['score'];
         
         // TODO: Préparer une requête INSERT
         // La requête SQL sera : INSERT INTO games (name, genre, score) VALUES (?, ?, ?)
         
         // TODO: Exécuter la requête en passant un tableau avec les trois valeurs
-        // $stmt->execute([$name, $genre, $score]);
+        // $stmt->execute([]);
         
         // TODO: Rediriger vers index.php après l'insertion
         // header('Location: index.php');
